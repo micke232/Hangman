@@ -12,7 +12,7 @@ wordLength.innerHTML = "The word is " + word.length + " characters.";
 
 //Lägger in varje bokstav separat i en array
 var answer = [];
-for(i = 0; i < word.length; i++){
+for(var i = 0; i < word.length; i++){
 	answer.push(word[i]);
 }
 //=====================
@@ -20,16 +20,53 @@ for(i = 0; i < word.length; i++){
 console.log(answer);
 //Skapa en variabel som visar med _ hur många bokstäver ordet består av
 var output = [];
-for(j = 0; j < word.length; j++){
+for(var j = 0; j < word.length; j++){
 	output.push("_");
 }
 //====================
 
-//Skriver ut _ för varje bokstav ordet består av
-var letterOutput = document.getElementById("letterOutput");
-for(k = 0; k < answer.length; k++){
-	var td = document.createElement("td");
-	td.innerHTML = output[k];
-	letterOutput.appendChild(td);
+//Funktion som skriver ut _ för bokstäver man inte gissat
+function answerOutput(){
+	var letterOutput = document.getElementById("letterOutput");
+		if(letterOutput.hasChildNodes()){
+    	while(letterOutput.childNodes.length >= 1){
+        letterOutput.removeChild(letterOutput.firstChild);       
+    	} 
+		}
+	for(var k = 0; k < answer.length; k++){
+		var td = document.createElement("td");
+		td.innerHTML = output[k];
+		letterOutput.appendChild(td);
+	}
 }
 //======================
+answerOutput();
+
+//Tar emot gissning och lägger det gissade i en variabel
+var guessButton = document.getElementById("guessButton");
+guessButton.addEventListener("click", function(){
+	var guess = document.getElementById("guess");
+	console.log(guess.value);
+//=====================
+	
+//Kollar om den gissade bokstaven finns i ordet
+	for(var l = 0; l < 5; l++){
+		for(var m = 0; m < answer.length; m++)
+			if(guess.value == answer[m])
+				output[m] = guess.value;
+		}
+	answerOutput()
+	guess.value = "";
+})
+//===========================
+
+
+
+
+
+
+
+
+
+
+

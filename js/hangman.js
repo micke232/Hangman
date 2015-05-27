@@ -45,15 +45,17 @@ answerOutput();
 //Tar emot gissning och lägger det gissade i en variabel
 var guessButton = document.getElementById("guessButton");
 guessButton.addEventListener("click", function(){
-	var guess = document.getElementById("guess");
-	console.log(guess.value);
-//=====================
+	var guess = document.getElementById("guess").value;
+//	sätter så du bara kan gissa en bokstav åt gången
+	if(guess.length > 1){
+		alert("You can only guess one letter per guess")
+	}
 	
 //Kollar om den gissade bokstaven finns i ordet
 	for(var l = 0; l < 5; l++){
 		for(var m = 0; m < answer.length; m++)
-			if(guess.value == answer[m])
-				output[m] = guess.value;
+			if(guess == answer[m])
+				output[m] = guess;
 		}
 	answerOutput()
 	guess.value = "";

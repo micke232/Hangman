@@ -1,1 +1,2 @@
 # GITtraining
+Öva på GIT

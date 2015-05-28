@@ -53,18 +53,23 @@ guessButton.addEventListener("click", function(){
 	}
 var wrongLetters = document.getElementById("wrongLetters");
 //Kollar om den gissade bokstaven finns i ordet
+	var noLetter = false;
 	for(var l = 0; l < 5; l++){
 		for(var m = 0; m < answer.length; m++)
 			if(guess.value == answer[m]){
-				output[m] = guess.value;
+				output[m] = guess.value.toUpperCase();
+				noLetter = false;
 				}
-//			else{
-//				var wrong = document.createElement("td");
-//				wrong.innerHTML = guess.value;
-//				LÖS SÅ ATT DEN BARA SKRIVER UT OM BOKSTAVEN INTE FINNS!!!!!!
-//			}
-//		}
-//	wrongLetters.appendChild(wrong);
+			else{
+				noLetter = true;
+			}
+		}
+	if(noLetter){
+		var wrong = document.createElement("td");
+		wrong.innerHTML = guess.value.toUpperCase();
+		wrongLetters.appendChild(wrong);
+	}
+	
 	answerOutput()
 	guess.value = "";
 })

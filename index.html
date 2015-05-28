@@ -2,19 +2,21 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/style.css">
 	<title>Hangman</title>
 </head>
 <body>
-	<h1>Hangman Game</h1>
-	<p id="wordLength"></p>
-	<table id="letterOutput">
-	</table>
-	<input type="text" placeholder="Gissa en bokstav!" id="guess">
-	<button id="guessButton">GISSA!</button>
-	<h2>Guessed letters.</h2>
-	<h3>Wrong letters</h3>
-	<table id="wrongLetters">
-	</table>
+	<div class="wrapper">
+		<h1>Hangman Game</h1>
+		<p id="wordLength"></p>
+		<table id="letterOutput">
+		</table>
+		<input type="text" placeholder="Gissa en bokstav!" id="guess">
+		<button id="guessButton">GISSA!</button>
+		<h2>Wrong letters</h2>
+		<table id="wrongLetters">
+		</table>
+	</div>
 	<script src="js/hangman.js"></script>
 </body>
 </html>

@@ -1,0 +1,23 @@
+.wrapper{
+	margin: 0 auto;
+	width: 70%;
+	text-align: center;
+}
+#letterOutput{
+	margin: 10px auto;
+}
+#letterOutput td{
+	font-size: 25px;
+}
+#wrongLetters{
+	margin: auto;
+}
+
+table#wrongLetters td{
+	height: 40px;
+	width: 40px;
+	color: red;
+	border: 2px solid #000;
+	text-align: center;
+	font-size: 35px;
+}

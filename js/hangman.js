@@ -53,16 +53,13 @@ guessButton.addEventListener("click", function(){
 	}
 var wrongLetters = document.getElementById("wrongLetters");
 //Kollar om den gissade bokstaven finns i ordet
-	var noLetter = false;
+	var noLetter = true;
 	for(var l = 0; l < 5; l++){
 		for(var m = 0; m < answer.length; m++)
 			if(guess.value == answer[m]){
 				output[m] = guess.value.toUpperCase();
 				noLetter = false;
 				}
-			else{
-				noLetter = true;
-			}
 		}
 	if(noLetter){
 		var wrong = document.createElement("td");

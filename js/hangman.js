@@ -51,13 +51,20 @@ guessButton.addEventListener("click", function(){
 	if(guesslength.length > 1){
 		alert("You can only guess one letter per guess")
 	}
-	
+var wrongLetters = document.getElementById("wrongLetters");
 //Kollar om den gissade bokstaven finns i ordet
 	for(var l = 0; l < 5; l++){
 		for(var m = 0; m < answer.length; m++)
-			if(guess.value == answer[m])
+			if(guess.value == answer[m]){
 				output[m] = guess.value;
-		}
+				}
+//			else{
+//				var wrong = document.createElement("td");
+//				wrong.innerHTML = guess.value;
+//				LÖS SÅ ATT DEN BARA SKRIVER UT OM BOKSTAVEN INTE FINNS!!!!!!
+//			}
+//		}
+//	wrongLetters.appendChild(wrong);
 	answerOutput()
 	guess.value = "";
 })

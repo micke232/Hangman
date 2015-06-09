@@ -4,7 +4,9 @@
 //var word = hangWord[randomizer];
 //============================
 console.log(word);
-
+var counter = 0;
+var guesses = 10;
+var counterDiv = document.getElementById("counter");
 //Användare anger ett ord för gissning
 var word = prompt("Ange ett ord för gissning!!");
 //=============================
@@ -49,6 +51,7 @@ answerOutput();
 //Tar emot gissning och lägger det gissade i en variabel
 var guessButton = document.getElementById("guessButton");
 guessButton.addEventListener("click", function(){
+  
 	var guess = document.getElementById("guess");
 	var guesslength = guess.value;
 //	sätter så du bara kan gissa en bokstav åt gången
@@ -69,6 +72,8 @@ var wrongLetters = document.getElementById("wrongLetters");
 		var wrong = document.createElement("td");
 		wrong.innerHTML = guess.value.toUpperCase();
 		wrongLetters.appendChild(wrong);
+    counter++;
+    counterDiv.innerHTML = "Number of guesses = " + counter + "<br>" + "Number of guesses left = " + (guesses - counter);
 	}
 	
 	answerOutput()
@@ -77,7 +82,7 @@ var wrongLetters = document.getElementById("wrongLetters");
 	if(guessWord == word.toUpperCase()){
 		alert("WINNING!!");
 	}
-})
+  });
 //===========================
 
 

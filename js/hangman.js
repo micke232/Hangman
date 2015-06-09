@@ -1,9 +1,13 @@
 //randomizar ut ett ord från en array
-var hangWord = ["apa", "banan", "ninja", "köttbulle"];
-var randomizer = Math.floor(Math.random()*4);
-var word = hangWord[randomizer];
+//var hangWord = ["apa", "banan", "ninja", "köttbulle"];
+//var randomizer = Math.floor(Math.random()*4);
+//var word = hangWord[randomizer];
 //============================
 console.log(word);
+
+//Användare anger ett ord för gissning
+var word = prompt("Ange ett ord för gissning!!");
+//=============================
 
 //skriver ut längden på det valda ordet.
 var wordLength = document.getElementById("wordLength");
@@ -53,16 +57,13 @@ guessButton.addEventListener("click", function(){
 	}
 var wrongLetters = document.getElementById("wrongLetters");
 //Kollar om den gissade bokstaven finns i ordet
-	var noLetter = false;
+	var noLetter = true;
 	for(var l = 0; l < 5; l++){
 		for(var m = 0; m < answer.length; m++)
 			if(guess.value == answer[m]){
 				output[m] = guess.value.toUpperCase();
 				noLetter = false;
 				}
-			else{
-				noLetter = true;
-			}
 		}
 	if(noLetter){
 		var wrong = document.createElement("td");
@@ -72,6 +73,10 @@ var wrongLetters = document.getElementById("wrongLetters");
 	
 	answerOutput()
 	guess.value = "";
+	var guessWord = output.join("");
+	if(guessWord == word.toUpperCase()){
+		alert("WINNING!!");
+	}
 })
 //===========================
 

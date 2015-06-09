@@ -47,7 +47,7 @@ function answerOutput(){
 }
 //======================
 answerOutput();
-
+	var wrongLetteArray = [];
 //Tar emot gissning och lägger det gissade i en variabel
 var guessButton = document.getElementById("guessButton");
 guessButton.addEventListener("click", function(){
@@ -70,12 +70,13 @@ var wrongLetters = document.getElementById("wrongLetters");
 		}
 	if(noLetter){
 		var wrong = document.createElement("td");
+		wrongLetteArray.push(guess.value);
 		wrong.innerHTML = guess.value.toUpperCase();
 		wrongLetters.appendChild(wrong);
     counter++;
     counterDiv.innerHTML = "Number of guesses = " + counter + "<br>" + "Number of guesses left = " + (guesses - counter);
 	}
-	
+	console.log(wrongLetteArray);
 	answerOutput()
 	guess.value = "";
 	var guessWord = output.join("");

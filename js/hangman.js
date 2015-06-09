@@ -1,9 +1,13 @@
 //randomizar ut ett ord från en array
-var hangWord = ["apa", "banan", "ninja", "köttbulle"];
-var randomizer = Math.floor(Math.random()*4);
-var word = hangWord[randomizer];
+//var hangWord = ["apa", "banan", "ninja", "köttbulle"];
+//var randomizer = Math.floor(Math.random()*4);
+//var word = hangWord[randomizer];
 //============================
 console.log(word);
+
+//Användare anger ett ord för gissning
+var word = prompt("Ange ett ord för gissning!!");
+//=============================
 
 //skriver ut längden på det valda ordet.
 var wordLength = document.getElementById("wordLength");
@@ -69,6 +73,10 @@ var wrongLetters = document.getElementById("wrongLetters");
 	
 	answerOutput()
 	guess.value = "";
+	var guessWord = output.join("");
+	if(guessWord == word.toUpperCase()){
+		alert("WINNING!!");
+	}
 })
 //===========================
 

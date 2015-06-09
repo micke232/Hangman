@@ -3,20 +3,22 @@
 //var randomizer = Math.floor(Math.random()*4);
 //var word = hangWord[randomizer];
 //============================
-console.log(word);
-console.log(answer);
+
 var counter = 0;
 var guesses = 5;
 var counterDiv = document.getElementById("counter");
 var guessButton = document.getElementById("guessButton");
 var output = []; //Skapa en variabel som visar med _ hur många bokstäver ordet består av
-var word = prompt("Ange ett ord för gissning!!"); //Användare anger ett ord för gissning
+var word = 0; //Användare anger ett ord för gissning
 var wordLength = document.getElementById("wordLength"); //skriver ut längden på det valda ordet.
 var answer = []; //Lägger in varje bokstav separat i en array
 var noTriesLeftDiv = document.getElementById("endOfTries");
 var newGameButton = document.getElementById("newGame"); //reloads page
-wordLength.innerHTML = "The word is " + word.length + " characters.";
+var wordButton = document.getElementById("addButton");
 
+
+console.log(word);
+console.log(answer);
 
 for(var i = 0; i < word.length; i++){
   answer.push(word[i]);
@@ -24,6 +26,14 @@ for(var i = 0; i < word.length; i++){
 for(var j = 0; j < word.length; j++){
   output.push("_");
 }
+
+wordButton.addEventListener("click", function(){
+  word = document.getElementById("addWord").value
+  wordLength.innerHTML = "The word is " + word.length + " characters.";
+  wordButton.remove();
+  document.getElementById("addWord").remove();
+});
+
 
 function answerOutput(){ //Funktion som skriver ut _ för bokstäver man inte gissat
   var letterOutput = document.getElementById("letterOutput");

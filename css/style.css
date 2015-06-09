@@ -21,3 +21,14 @@ table#wrongLetters td{
 	text-align: center;
 	font-size: 35px;
 }
+
+#endOfTries {
+  margin: 0 auto;
+  position: fixed;
+  background-color: red;
+  display: none;
+  right: 0;
+  left: 0;
+  width: 200px;
+  height: 70px;
+}
